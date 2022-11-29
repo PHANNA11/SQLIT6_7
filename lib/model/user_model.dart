@@ -5,9 +5,10 @@ class User {
   int? uid;
   String? name;
   int? age;
-  User({this.uid, this.age, this.name});
+  String? image;
+  User({this.uid, this.age, this.name, this.image});
   Map<String, dynamic> toJson() {
-    return {fuId: uid, fuName: name, fuAge: age};
+    return {fuId: uid, fuName: name, fuAge: age, fuImage: image};
   }
   // User.fromJson(Map<String, dynamic> res) {
   //   uid = res[fuId];
@@ -18,5 +19,6 @@ class User {
   User.fromJson(Map<String, dynamic> res)
       : uid = res[fuId],
         name = res[fuName],
-        age = res[fuAge];
+        age = res[fuAge],
+        image = res[fuImage];
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:crud_sqlite/connection/user_database.dart';
 import 'package:crud_sqlite/model/user_model.dart';
 import 'package:crud_sqlite/view/create_user.dart';
@@ -51,6 +53,9 @@ class _ReadDataScreenState extends State<ReadDataScreen> {
                 onLongPress: () async {
                   await ConnectionDB().deleteUser(users[index].uid!);
                 },
+                leading: CircleAvatar(
+                    backgroundImage:
+                        FileImage(File(users[index].image.toString()))),
                 title: Text(users[index].name.toString())),
           );
         },

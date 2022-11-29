@@ -12,7 +12,7 @@ class ConnectionDB {
       join(path, 'userdatabase.db'),
       onCreate: (database, version) async {
         await database.execute(
-          'CREATE TABLE $tblName($fuId INTEGER PRIMARY KEY, $fuName TEXT, $fuAge INTEGER)',
+          'CREATE TABLE $tblName($fuId INTEGER PRIMARY KEY, $fuName TEXT, $fuAge INTEGER,$fuImage TEXT)',
         );
       },
       version: 1,
