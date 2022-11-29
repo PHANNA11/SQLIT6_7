@@ -25,6 +25,17 @@ class ConnectionDB {
     dev.log('Function Insert');
   }
 
+  Future<void> deleteUser(int userId) async {
+    final db = await initDataBase();
+    await db.delete(tblName, where: "$fuId=?", whereArgs: [userId]);
+  }
+
+  Future<void> updateUser(User user) async {
+    final db = await initDataBase();
+    await db.update(tblName, user.toJson(),
+        where: '$fuId=?', whereArgs: [user.uid]);
+  }
+
   Future<List<User>> getUser() async {
     final db = await initDataBase();
     final List<Map<String, dynamic>> queryResult = await db.query(tblName);
